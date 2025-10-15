@@ -1,24 +1,35 @@
-# Flipbook PDF
-<img width="1051" height="728" alt="image" src="https://github.com/user-attachments/assets/b3c84ccc-077c-4c87-a8b8-bde0e4f89bef" />
+# Criador de PDF para Impressão
 
-Acessar online: [flipbook-pdfbr.surge.sh](https://flipbook-pdfbr.surge.sh/)
+Esta é uma aplicação web para reorganizar as páginas de um documento PDF para diferentes formatos de impressão, como flipbooks e livretos.
 
-Esta é uma simples aplicação web para reorganizar as páginas de um documento PDF de 8 páginas em um layout de flipbook de página única, pronto para impressão. A ferramenta organiza as páginas em uma folha A4 em modo paisagem, que pode ser impressa, cortada, empilhada e dobrada para criar um pequeno flipbook.
+## Funcionalidades
+
+A aplicação possui duas abas principais:
+
+1.  **Flipbook:** Transforma um PDF de qualquer tamanho em um ou mais folhetos de 8 quadros. Se o seu PDF tiver mais de 8 páginas, ele criará folhas de impressão adicionais.
+2.  **Livreto:** Reorganiza as páginas de um PDF de qualquer tamanho em um formato de imposição de livreto (montagem em sela), ideal para impressão frente e verso e dobra central.
 
 ## Como Funciona
 
-1.  **Envie o PDF:** Você pode clicar na área designada ou arrastar e soltar um arquivo PDF de 8 páginas.
-2.  **Processamento:** A aplicação irá pegar as 8 páginas e organizá-las em uma única página A4 em modo paisagem.
-3.  **Layout:** As páginas são dispostas em uma grade de 4x2. A linha superior (páginas 1, 2, 3 e 8 do original) é rotacionada em 180 graus (de cabeça para baixo). A linha inferior (páginas 4, 5, 6 e 7) permanece na orientação normal.
+1.  **Selecione o Modo:** Escolha entre "Flipbook" ou "Livreto" na parte superior da aplicação.
+2.  **Envie o PDF:** Você pode clicar na área designada ou arrastar e soltar um arquivo PDF.
+3.  **Processamento:** A aplicação irá reorganizar as páginas de acordo com o modo selecionado.
 4.  **Download:** Após o processamento, um link para download do novo arquivo PDF será disponibilizado.
 
-### Estrutura do Layout
+### Estrutura do Layout (Flipbook)
 
-A página final terá a seguinte disposição:
+Cada página do PDF de saída é uma folha A4 em modo paisagem com a seguinte disposição de 8 quadros:
 
-| Quadro 3 (Página 3, Invertida) | Quadro 2 (Página 2, Invertida) | Quadro 1 (Página 1, Invertida) | Quadro 8 (Página 8, Invertida) |
+| Quadro 3 (Página C+2, Invertida) | Quadro 2 (Página C+1, Invertida) | Quadro 1 (Página C, Invertida) | Quadro 8 (Página C+7, Invertida) |
 | :---: | :---: | :---: | :---: |
-| Quadro 4 (Página 4, Normal) | Quadro 5 (Página 5, Normal) | Quadro 6 (Página 6, Normal) | Quadro 7 (Página 7, Normal) |
+| Quadro 4 (Página C+3, Normal) | Quadro 5 (Página C+4, Normal) | Quadro 6 (Página C+5, Normal) | Quadro 7 (Página C+6, Normal) |
+
+- **'C'** representa a página inicial de cada bloco de 8 (ex: 1, 9, 17...).
+- Para folhas de impressão após a primeira, o **Quadro 1** sempre usará a **Página 1** do PDF original, e a sequência continua a partir do **Quadro 2** (com a página 9, 10, etc.).
+
+### Estrutura do Layout (Livreto)
+
+As páginas são pareadas para que, quando impressas frente e verso e dobradas, fiquem na ordem correta de leitura. Por exemplo, em um livreto, a primeira página do PDF de saída conterá a última página do original ao lado da primeira página do original.
 
 ## Instalação Local
 

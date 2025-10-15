@@ -6,9 +6,10 @@ interface FileUploadProps {
   onFileSelect: (file: File | null) => void;
   disabled: boolean;
   selectedFile: File | null;
+  description: string;
 }
 
-export const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect, disabled, selectedFile }) => {
+export const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect, disabled, selectedFile, description }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +31,12 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect, disabled, 
   const handleClick = () => {
     inputRef.current?.click();
   };
+  
+  const resetInput = () => {
+    if (inputRef.current) {
+      inputRef.current.value = '';
+    }
+  }
 
   if (selectedFile && !disabled) {
     return (
@@ -58,7 +65,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect, disabled, 
           <p className="mb-2 text-sm">
             <span className="font-semibold">Clique para enviar</span> ou arraste e solte
           </p>
-          <p className="text-xs">Um arquivo PDF de 8 páginas</p>
+          <p className="text-xs">{description}</p>
         </div>
         <input
           ref={inputRef}

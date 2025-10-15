@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 export const UploadIcon: React.FC = () => (
@@ -38,5 +37,27 @@ export const LoaderIcon: React.FC = () => (
 export const ResetIcon: React.FC = () => (
     <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 1v5h-5M2 19v-5h5m10-4a8 8 0 0 1-14.947 3.97M1 10a8 8 0 0 1 14.947-3.97" />
+    </svg>
+);
+
+export const BookIcon: React.FC = () => (
+    <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
+        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 16.5c0-1-8-2.7-9-2.7V2.2S10 1 10 1s9 1.2 9 1.2v11.6s-9 1.7-9 2.7Z"/>
+        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 1v15.5"/>
+    </svg>
+);
+
+export const PageIcon: React.FC = () => (
+    <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 20">
+        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1v18h12V5.5M1 5.5h4.5a.5.5 0 0 1 .5.5v4.5a.5.5 0 0 1-.5.5H1"/>
+    </svg>
+);
+
+export const BookletIcon: React.FC = () => (
+    <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 14">
+        <g stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
+            <path d="M10 13V1m0 12a9 9 0 0 0 9-9 .945.945 0 0 0-.595-.914 9.06 9.06 0 0 0-8.405 0 .945.945 0 0 0-.595.914 9 9 0 0 0 9 9Z"/>
+            <path d="M10 13V1m0 12a9 9 0 0 1-9-9 .945.945 0 0 1 .595-.914 9.06 9.06 0 0 1 8.405 0 .945.945 0 0 1 .595.914 9 9 0 0 1-9 9Z"/>
+        </g>
     </svg>
 );

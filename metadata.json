@@ -1,5 +1,5 @@
 {
-  "name": "Flipbook PDF",
-  "description": "Uma aplicação para reorganizar um PDF de 8 páginas em um formato de flipbook de página única. Envie seu PDF e o aplicativo irá reordenar e girar automaticamente as páginas para facilitar a impressão e a dobra.",
+  "name": "Criador de PDF para Impressão",
+  "description": "Uma aplicação para reorganizar PDFs para impressão. Crie flipbooks ou livretos prontos para impressão a partir de PDFs de qualquer tamanho.",
   "requestFramePermissions": []
 }
