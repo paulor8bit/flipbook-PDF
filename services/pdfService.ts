@@ -2,7 +2,7 @@
 // that is loaded from the CDN script in index.html.
 declare const PDFLib: any;
 
-const { PDFDocument, degrees, PageSizes } = PDFLib;
+const { PDFDocument, degrees, PageSizes, rgb, StandardFonts } = PDFLib;
 
 // Layout defines the position, source page, and rotation for each frame
 // on the new single-page PDF. Coordinates are grid-based (0-3 for x, 0-1 for y).
@@ -38,6 +38,10 @@ export async function createFlipbookPdf(file: File): Promise<Uint8Array> {
   const numSubsequentPages = Math.ceil(remainingPages / 7);
   const numOutputPages = numOutputPagesForFirst8 + numSubsequentPages;
 
+  const font = await newPdfDoc.embedFont(StandardFonts.Helvetica);
+  const grayColor = rgb(0.5, 0.5, 0.5);
+
+  const shouldAddPageNumbers = pageCount >= 9;
 
   for (let i = 0; i < numOutputPages; i++) {
     const newPage = newPdfDoc.addPage([pageWidth, pageHeight]);
@@ -81,6 +85,29 @@ export async function createFlipbookPdf(file: File): Promise<Uint8Array> {
       
       newPage.drawPage(embeddedPage, drawOptions);
     }
+    
+    // Add page number only if the original PDF has 9 or more pages
+    if (shouldAddPageNumbers) {
+        const pageNumText = `${i + 1}`;
+        const textSize = 12;
+        const textWidth = font.widthOfTextAtSize(pageNumText, textSize);
+        
+        // Frame 1 is at gridX=2
+        const frame1XStart = 2 * cellWidth; 
+        
+        // Calculate position for rotated text. The (x,y) becomes the top-right corner.
+        const x = frame1XStart + (cellWidth / 2) + (textWidth / 2);
+        const y = pageHeight - 15; // 15 points from the top edge
+
+        newPage.drawText(pageNumText, {
+            x: x,
+            y: y,
+            size: textSize,
+            font: font,
+            color: grayColor,
+            rotate: degrees(180),
+        });
+    }
   }
 
   const pdfBytes = await newPdfDoc.save();
@@ -116,7 +143,7 @@ export async function createBookletPdf(file: File): Promise<Uint8Array> {
         low += 2;
         high -= 2;
     }
-    
+
     for (let i = 0; i < impositionOrder.length; i += 2) {
         const newPage = newPdfDoc.addPage([pageWidth, pageHeight]);
         const leftPageNumber = impositionOrder[i];
