@@ -1,4 +1,7 @@
 # Flipbook PDF
+<img width="1051" height="728" alt="image" src="https://github.com/user-attachments/assets/b3c84ccc-077c-4c87-a8b8-bde0e4f89bef" />
+
+Acessar online: [flipbook-pdfbr.surge.sh](https://flipbook-pdfbr.surge.sh/)
 
 Esta é uma simples aplicação web para reorganizar as páginas de um documento PDF de 8 páginas em um layout de flipbook de página única, pronto para impressão. A ferramenta organiza as páginas em uma folha A4 em modo paisagem, que pode ser impressa, cortada, empilhada e dobrada para criar um pequeno flipbook.
 
