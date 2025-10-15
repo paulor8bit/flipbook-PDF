@@ -63,3 +63,5 @@ Esta aplicação não requer um processo de compilação complexo e pode ser exe
         3.  Clique com o botão direito no arquivo `index.html` e selecione "Open with Live Server".
 
 3.  **Acesse a aplicação:** Abra seu navegador e acesse o endereço fornecido pelo servidor local (geralmente `http://localhost:8000` ou `http://127.0.0.1:5500` para o Live Server).
+
+<img width="565" height="832" alt="image" src="https://github.com/user-attachments/assets/f6755909-07bb-479c-b7f4-d6337446a9f1" />
